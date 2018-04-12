@@ -1,0 +1,46 @@
+var randomnumber = Math.floor((Math.random() * 100) + 1);
+var a = $('.bottom')[4].children[0]
+var b = $('.darmowy');
+var url = '';
+var tytul = '';
+var seed = '';
+var arr = [];
+
+function movie(title, seed, url) {
+    this.title = title;
+    this.seed = seed;
+    this.url = url;
+}
+
+function markMovies() {
+    for (var i = 0; i < 4; i++) {
+        for (var j = 0; j < 5; j++) {
+            console.log('i: ' + i);
+            console.log('j: ' + j);
+            var zaznacz = a.children[i].children[j].innerText;
+            if (zaznacz == 'Filmy/3D' ||
+                zaznacz == 'Filmy/4K UHD' ||
+                zaznacz == 'Filmy/Animowane' ||
+                zaznacz == 'Filmy/BDRip'
+            ) {
+                a.children[i].children[j].children[0].checked = true;
+            }
+        }
+    }
+}
+
+markMovies();
+
+    for (var i = 0; i < b.length; i++) {
+        url = b[i].children[1].children[1].href;
+        tytul = b[i].children[1].children[1].innerText;
+        seed = b[i].children[6].children[0].innerText;
+        if(seed > 10) {
+            if(tytul == undefined || url == undefined) {
+                url = b[i].children[1].children[2].href;
+                tytul = b[i].children[1].children[2].innerText;
+            }
+            arr.push(new json2(tytul, seed, url));
+        }
+    }
+//window.open('yoururl',"_blank",'PopUp'+randomnumber+',scrollbars=1,menubar=0,resizable=1,width=850,height=500');
