@@ -44,3 +44,31 @@ markMovies();
         }
     }
 //window.open('yoururl',"_blank",'PopUp'+randomnumber+',scrollbars=1,menubar=0,resizable=1,width=850,height=500');
+
+$.ajax({
+	url: 'http://192.168.199.50:3000/patryk/json',
+	type: 'POST',
+data: {
+	myArr : arr
+},
+	success: function(msg) {
+	alert(msg);
+},
+	contentType: 'application/json',
+});
+
+var http = new XMLHttpRequest();
+var url = "http://192.168.199.50:3000/patryk/json";
+var params = "test";
+http.open("POST", url, true);
+
+//Send the proper header information along with the request
+http.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+
+http.onreadystatechange = function() {//Call a function when the state changes.
+    if(http.readyState == 4 && http.status == 200) {
+        console.log(http.responseText);
+    }
+}
+http.send(params);
+
