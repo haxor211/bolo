@@ -1,0 +1,11 @@
+#okienko {
+    background-color: black;
+    border-width: 4px;
+    border-color: #BBB;
+    border-style: solid;
+    height: 600px;
+    width: 900px;
+    margin: 0px auto;
+    box-shadow: 3px 3px 10px #bbb;
+    color: green;
+}
