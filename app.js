@@ -4,7 +4,30 @@ const app = express();
 const myParser = require('body-parser');
 const qs = require('querystring');
 
+/*
+const sqlite3 = require('sqlite3').verbose();
 
+var db = new sqlite3.Database('movies');
+
+db.serialize(function() {
+  db.run("CREATE TABLE movies (title TEXT, seed INT, url TEXT)");
+
+  var stmt = db.prepare("INSERT INTO movies VALUES (?,?)");
+  for (var i = 0; i < 10; i++) {
+  
+  var d = new Date();
+  var n = d.toLocaleTimeString();
+  stmt.run(i, n);
+  }
+  stmt.finalize();
+
+  db.each("SELECT title, seed, url FROM movies", function(err, row) {
+      console.log("Movie title : "+row.title, row.seed, row.url);
+  });
+});
+
+db.close();
+*/
 app.set('views', __dirname + '/views')
 app.set('view engine', 'jade')
 app.use(express.static(__dirname + '/public'))
@@ -21,7 +44,8 @@ var allowCrossDomain = function (req, res, next) {
 app.use(allowCrossDomain);
 
 app.get('/', function (req, res, next) {
-  res.render('index');
+  var jsonString = req.body;
+  res.render('index', {test: jsonString});
 })
 
 app.get('/tl', function (req, res, next) {
@@ -29,14 +53,10 @@ app.get('/tl', function (req, res, next) {
 })
 
 app.post("/", function (req, res) {
-  response = {
-    first_name: req.body
-  };
-
-  console.log('SHOW ME BODY')
+  var jsonString = JSON.stringify(req.body || {}); 
   console.log(req.body);
-  
-  res.send('You sent: this to Express');
+
+  //res.send('You sent: this to Express');
 });
 
 app.listen(8080);
