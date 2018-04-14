@@ -1,7 +1,9 @@
 extend layout
 
 block content
-  p= message
   p= 'Block content works'
+  script.
+    if req.body != undefined
+      div(id='data')= req.body
   //script(src="scripts/matrix.js")
   //canvas(id="c")

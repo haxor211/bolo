@@ -40,13 +40,13 @@ markMovies();
                 url = b[i].children[1].children[2].href;
                 tytul = b[i].children[1].children[2].innerText;
             }
-            arr.push(new json2(tytul, seed, url));
+            arr.push(new movie(tytul, seed, url));
         }
     }
 //window.open('yoururl',"_blank",'PopUp'+randomnumber+',scrollbars=1,menubar=0,resizable=1,width=850,height=500');
 
 $.ajax({
-	url: 'http://192.168.199.50:3000/patryk/json',
+	url: 'http://localhost:3000/',
 	type: 'POST',
 data: {
 	myArr : arr
@@ -57,8 +57,9 @@ data: {
 	contentType: 'application/json',
 });
 
+/*
 var http = new XMLHttpRequest();
-var url = "http://192.168.199.50:3000/patryk/json";
+var url = "http://localhost:3000/";
 var params = "test";
 http.open("POST", url, true);
 
@@ -71,4 +72,5 @@ http.onreadystatechange = function() {//Call a function when the state changes.
     }
 }
 http.send(params);
+*/
 
