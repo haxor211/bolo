@@ -1,16 +1,14 @@
-var mysql = require('mysql');
+const sqlite3 = require('sqlite3').verbose();
 
-var con = mysql.createConnection({
-  host: "localhost",
-  user: "bolo",
-  password: "bolomaster9483"
+var db = new sqlite3.Database('movies');
+
+db.serialize(function(filmy) {
+  var stmt = db.prepare("INSERT INTO movies VALUES (?,?,?,?)");
+  for (var i = 0; i < 10; i++) {
+  
+  var d = new Date();
+  var data = filmy;
+  }
 });
 
-con.connect(function(err) {
-  if (err) throw err;
-  console.log("Connected!");
-  con.query("CREATE DATABASE mydb", function (err, result) {
-    if (err) throw err;
-    console.log("Database created");
-  });
-});
+module.exports = db;

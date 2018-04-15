@@ -1,6 +1,19 @@
 extend layout
+block extra
 
 block content
-  div(id='data')
-    pre
-      test = jsonString
+    h1= 'Torrentleech Zassysator'
+    div(id='data', class='invis')= data
+    script.
+        var myJ = JSON.parse(data.innerText);
+    ol(id='movies', class="rounded-list")
+        li Title
+        li Seed
+        li URL
+            ol
+            each id in myob
+                li #{id.title}
+                li #{id.seed}
+                li #{id.url}
+    script.
+        

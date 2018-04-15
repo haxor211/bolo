@@ -3,31 +3,8 @@ const express = require('express');
 const app = express();
 const myParser = require('body-parser');
 const qs = require('querystring');
+const db = require('./database')
 
-/*
-const sqlite3 = require('sqlite3').verbose();
-
-var db = new sqlite3.Database('movies');
-
-db.serialize(function() {
-  db.run("CREATE TABLE movies (title TEXT, seed INT, url TEXT)");
-
-  var stmt = db.prepare("INSERT INTO movies VALUES (?,?)");
-  for (var i = 0; i < 10; i++) {
-  
-  var d = new Date();
-  var n = d.toLocaleTimeString();
-  stmt.run(i, n);
-  }
-  stmt.finalize();
-
-  db.each("SELECT title, seed, url FROM movies", function(err, row) {
-      console.log("Movie title : "+row.title, row.seed, row.url);
-  });
-});
-
-db.close();
-*/
 app.set('views', __dirname + '/views')
 app.set('view engine', 'jade')
 app.use(express.static(__dirname + '/public'))
@@ -44,19 +21,40 @@ var allowCrossDomain = function (req, res, next) {
 app.use(allowCrossDomain);
 
 app.get('/', function (req, res, next) {
-  var jsonString = req.body;
-  res.render('index', {test: jsonString});
+  res.render('index');
 })
 
 app.get('/tl', function (req, res, next) {
-  res.render('tl');
+  db.all('select * from movies', function (err, rows) {
+    if (err)
+      return next(err);
+    var data = {};
+    rows.forEach(function (row) {
+      data[row.id] = {
+        title: row.title,
+        seed: row.seed,
+        url: row.url
+      }
+      console.log(row.id + row.title + row.seed + row.url)
+    });
+
+    res.render('tl', { data: JSON.stringify(data), myob: data });
+  })
 })
 
 app.post("/", function (req, res) {
-  var jsonString = JSON.stringify(req.body || {}); 
-  console.log(req.body);
-
-  //res.send('You sent: this to Express');
+  var jsonString = JSON.stringify(req.body || {});
+  db.serialize(function () {
+    var stmt = db.prepare("INSERT INTO movies (id, title, seed, url) VALUES (?,?,?,?)");
+    for (var i = 0; i < req.body.length; i++) {
+      var d = new Date();
+      var data = req.body;
+      var n = d.toLocaleTimeString();
+      stmt.run(i, req.body[i].title, req.body[i].seed, req.body[i].url);
+    }
+    stmt.finalize();
+  });
+  res.send('You sent: this to Express');
 });
 
 app.listen(8080);

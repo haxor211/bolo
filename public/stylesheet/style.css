@@ -1,14 +1,60 @@
 * {margin: 0; padding: 0;}
 
-body {
+--body {
     --background: black;
 }
 
-h1 {
-    color: navy;
-    margin-left: 20px;
+body, html
+{
+  width: 100%;
+  height: 100%;
+  font-family: "Droid Sans", arial, verdana, sans-serif;
+	font-weight: 700;
+	color: #ff6;
+	background-color: #000;
+	overflow: hidden;
+}
+
+h1
+{
+	--position: absolute;
+	width: 2.6em;
+	left: 50%;
+	top: 25%;
+	font-size: 8em;
+	text-align: center;
+	margin-left: 35%;
+	line-height: 0.8em;
+	letter-spacing: -0.05em;
+	color: #000;
+	text-shadow: -2px -2px 0 #ff6, 2px -2px 0 #ff6, -2px 2px 0 #ff6, 2px 2px 0 #ff6;
+	--opacity: 0;
+	z-index: 1;
+	-webkit-animation: logo 5s ease-out 2.5s;
+	-moz-animation: logo 5s ease-out 2.5s;
+	-ms-animation: logo 5s ease-out 2.5s;
+	-o-animation: logo 5s ease-out 2.5s;
+	animation: logo 5s ease-out 2.5s;
+}
+
+ol {
+    counter-reset: li; /* Initiate a counter */
+    list-style: none; /* Remove default numbering */
+    *list-style: decimal; /* Keep using default numbering for IE6/7 */
+    font: 15px 'trebuchet MS', 'lucida sans';
+    padding: 0;
+    margin-bottom: 4em;
+    text-shadow: 0 1px 0 rgba(255,255,255,.5);
+}
+
+ol ol {
+    margin: 0 0 0 2em; /* Add some left margin for inner lists */
 }
 
 canvas {
     display: block;
+}
+
+.invis {
+    display: none;
 }
