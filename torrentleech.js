@@ -21,7 +21,15 @@ function markMovies() {
             if (zaznacz == 'Filmy/3D' ||
                 zaznacz == 'Filmy/4K UHD' ||
                 zaznacz == 'Filmy/Animowane' ||
-                zaznacz == 'Filmy/BDRip'
+                zaznacz == 'Filmy/BDRip' ||
+                zaznacz == 'Filmy/CAM-TC-TS' ||
+                zaznacz == 'Filmy/Dokumentalne	' ||
+                zaznacz == 'Filmy/DVD' ||
+                zaznacz == 'Filmy/HD' ||
+                zaznacz == 'Filmy/Kino Polskie' ||
+                zaznacz == 'Filmy/PACK' ||
+                zaznacz == 'Filmy/SD' ||
+                zaznacz == 'Filmy/WEB-DL'
             ) {
                 a.children[i].children[j].children[0].checked = true;
             }
@@ -35,7 +43,7 @@ markMovies();
         url = b[i].children[1].children[1].href;
         tytul = b[i].children[1].children[1].innerText;
         seed = b[i].children[6].children[0].innerText;
-        if(seed > 10) {
+        if(seed > 25) {
             if(tytul == undefined || url == undefined) {
                 url = b[i].children[1].children[2].href;
                 tytul = b[i].children[1].children[2].innerText;
@@ -45,20 +53,6 @@ markMovies();
     }
 //window.open('yoururl',"_blank",'PopUp'+randomnumber+',scrollbars=1,menubar=0,resizable=1,width=850,height=500');
 
-$.ajax({
-	url: 'http://localhost:3000/',
-	type: 'POST',
-data: {
-	myArr : arr
-},
-	success: function(msg) {
-	alert(msg);
-},
-    contentType: 'application/x-www-form-urlencoded'
-	//contentType: 'application/json',
-});
-
-/*
 var http = new XMLHttpRequest();
 var url = "http://localhost:8080/";
 var params = JSON.stringify(arr);
@@ -73,5 +67,19 @@ http.onreadystatechange = function() {//Call a function when the state changes.
     }
 }
 http.send(params);
+
+/*
+$.ajax({
+	url: 'http://localhost:3000/',
+	type: 'POST',
+data: {
+	myArr : arr
+},
+	success: function(msg) {
+	alert(msg);
+},
+    contentType: 'application/x-www-form-urlencoded'
+	//contentType: 'application/json',
+});
 */
 

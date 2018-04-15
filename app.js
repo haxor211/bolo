@@ -21,6 +21,16 @@ var allowCrossDomain = function (req, res, next) {
 app.use(allowCrossDomain);
 
 app.get('/', function (req, res, next) {
+  var ip = req.header('x-forwarded-for') || req.connection.remoteAddress;
+  console.log('Incoming connection from: ' + ip);
+  if (new Date().getHours() > 22) {
+    db.run(`DELETE FROM movies`, function (err) {
+      if (err) {
+        return console.error(err.message);
+      }
+      console.log(`Row(s) deleted ${this.changes}`);
+    });
+  }
   res.render('index');
 })
 
@@ -28,19 +38,35 @@ app.get('/tl', function (req, res, next) {
   db.all('select * from movies', function (err, rows) {
     if (err)
       return next(err);
+    var dataO = [];
+    rows.forEach(function (row) {
+      dataO.push(row);
+    })
+    /*
     var data = {};
     rows.forEach(function (row) {
+      
       data[row.id] = {
         title: row.title,
         seed: row.seed,
         url: row.url
       }
-      console.log(row.id + row.title + row.seed + row.url)
+      //console.log(row.id + row.title + row.seed + row.url)
     });
-
-    res.render('tl', { data: JSON.stringify(data), myob: data });
+    res.render('tl', { data: JSON.stringify(data), myob: data, dataO: dataO });
+    */
+    res.render('tl', { dataO: dataO });
   })
 })
+
+app.get('/tl/del', function (req, res) {
+  db.run(`DELETE FROM movies`, function (err) {
+    if (err) {
+      return console.error(err.message);
+    }
+    console.log(`Row(s) deleted ${this.changes}`);
+  });
+});
 
 app.post("/", function (req, res) {
   var jsonString = JSON.stringify(req.body || {});
@@ -56,6 +82,6 @@ app.post("/", function (req, res) {
   });
   res.send('You sent: this to Express');
 });
-
-app.listen(8080);
-
+console.log('Time is: ' + new Date().getHours() + ':' + new Date().getMinutes());
+console.log(process.env.COMPUTERNAME);
+app.listen(8080, "0.0.0.0");
