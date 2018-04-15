@@ -23,7 +23,7 @@ app.use(allowCrossDomain);
 app.get('/', function (req, res, next) {
   var ip = req.header('x-forwarded-for') || req.connection.remoteAddress;
   console.log('Incoming connection from: ' + ip);
-  if (new Date().getHours() > 22) {
+  if (new Date().getHours() >= 22) {
     db.run(`DELETE FROM movies`, function (err) {
       if (err) {
         return console.error(err.message);
@@ -84,4 +84,4 @@ app.post("/", function (req, res) {
 });
 console.log('Time is: ' + new Date().getHours() + ':' + new Date().getMinutes());
 console.log(process.env.COMPUTERNAME);
-app.listen(8080, "0.0.0.0");
+app.listen(8080);
