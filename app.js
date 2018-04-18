@@ -42,19 +42,6 @@ app.get('/tl', function (req, res, next) {
     rows.forEach(function (row) {
       dataO.push(row);
     })
-    /*
-    var data = {};
-    rows.forEach(function (row) {
-      
-      data[row.id] = {
-        title: row.title,
-        seed: row.seed,
-        url: row.url
-      }
-      //console.log(row.id + row.title + row.seed + row.url)
-    });
-    res.render('tl', { data: JSON.stringify(data), myob: data, dataO: dataO });
-    */
     res.render('tl', { dataO: dataO });
   })
 })
