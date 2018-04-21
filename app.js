@@ -52,6 +52,7 @@ app.get('/tl/del', function (req, res) {
       return console.error(err.message);
     }
     console.log(`Row(s) deleted ${this.changes}`);
+    res.redirect('/tl');
   });
 });
 
