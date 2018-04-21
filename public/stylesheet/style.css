@@ -45,8 +45,39 @@ table {
     		    border: 1px solid #dddddd;
     		    text-align: left;
     		    padding: 8px;
-    		}
+			}
+button {
+	padding: 10px;
+	margin: -7px;
+}
 
+/*
+**link
+*/
+.but {
+    background-color: red;
+  box-shadow: 0 5px 0 darkred;
+  color: white;
+  padding: 1em 1.5em;
+  position: relative;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+a:hover {
+  background-color: #ce0606;
+  cursor: pointer;
+}
+
+a:active {
+  box-shadow: none;
+  top: 5px;
+}
+
+li {
+	padding: 2%;
+	margin: 5%;
+}
 canvas {
     display: block;
 }

@@ -3,12 +3,7 @@ block extra
 
 block content
     h1= 'Torrentleech Zassysator'
-    //div(id='data', class='invis')= data
-    //div(id='test', class='invis')= JSON.stringify(dataO)
-    script.
-        //var myJ = JSON.parse(data.innerText);
-        //var testO = JSON.parse(test.innerText);
-    div
+    div(id='main')
         table
             thead
                 tr: th Title
@@ -21,3 +16,7 @@ block content
                         td #{id.seed}
                         td
                             a(href='#{id.url}', target='_blank') #{id.url}
+        form(method="get" action="/tl/del")
+            input(type='submit', value='Delete Movies Db', class='but')
+        form(method="get" action="/")
+            input(type='submit', value='Go Back Home', class='but')
