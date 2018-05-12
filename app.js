@@ -4,9 +4,11 @@ const app = express();
 const myParser = require('body-parser');
 const qs = require('querystring');
 const db = require('./database')
+const basen = require('./routes/basen.js')
 
 app.set('views', __dirname + '/views')
 app.set('view engine', 'jade')
+ 
 app.use(express.static(__dirname + '/public'))
 app.use(myParser.urlencoded({ extended: false }));
 app.use(myParser.json())
@@ -19,6 +21,8 @@ var allowCrossDomain = function (req, res, next) {
 }
 
 app.use(allowCrossDomain);
+
+app.use('/basen', basen);
 
 app.get('/', function (req, res, next) {
   var ip = req.header('x-forwarded-for') || req.connection.remoteAddress;
