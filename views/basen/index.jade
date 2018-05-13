@@ -1,32 +1,43 @@
 extend ../layout.jade
-
+block extra
+    script(src='../javascripts/basen.js')
 block content
     h2 Super Zajebisty Basen-Script
     div(id='main')
         table
             thead
                 th Data
-                th Godzina
-                th Full Name
+                th Typ Goscia
+                th Operator
+                th Imie Goscia
+                th Liczba Os.
                 th Godzina Wejscia
                 th Godzina Wyjscia
                 th Forma Platnosci
             tbody
-                tr
-                    td 2018-01-01
-                    td 15:50;00
-                    td John Ramo
-                    td 16:00:00
-                    td 17;30;00
-                    td Paypal
-                tr
-                    td TEST
-                    td ss
-                    td aa
-                    td bb
-                    td aa
-                    td Karta Kredytowa
-    div(id='kasa') Gotowka w Kasie
+                each row in dane
+                    tr
+                        td #{row.data}
+                        td #{row.typ}
+                        td #{row.operator}
+                        td #{row.name}
+                        td(class='tab-liczba') #{row.liczbaos}
+                        td #{row.enter}
+                        td #{row.exit}
+                        td #{row.formapl}
+
+    div(id='kasa') Gotowka w Kasie:
+    div(id='liczba-os')
+    div(id='new-client') Nowy Klient
+        button(id='addbtn') Dodaj Klienta
+        form(id='addform', action='basen/add', method='post')
+            input(id='imie', type='text', name='name', placeholder='Name')
+            input(type='text', name='ilosc', placeholder='Prosze Wpisac Liczbe Osob', required)
+            select(type='select', name='typ')
+                option(name='hotelowy') Hotelowy
+                option(name='zewnetrzny') Zewnetrzny
+            input(id='operator', type='text', name='operator', class='invis')
+            button(type='submit') Zarejerstruj
     ul  
         li
             a(href='/', class='but') Home
