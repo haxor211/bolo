@@ -9,7 +9,7 @@ block content
                 th Data
                 th Typ Goscia
                 th Operator
-                th Imie Goscia
+                th Numer Pokoju
                 th Liczba Os.
                 th Godzina Wejscia
                 th Godzina Wyjscia
@@ -31,13 +31,14 @@ block content
     div(id='new-client') Nowy Klient
         button(id='addbtn') Dodaj Klienta
         form(id='addform', action='basen/add', method='post')
-            input(id='imie', type='text', name='name', placeholder='Name')
+            input(type='number', name='name', id='numer-pokoju', placeholder='Numer Pokoju')
+            //input(id='imie', type='text', name='name', placeholder='Name')
             input(type='text', name='ilosc', placeholder='Prosze Wpisac Liczbe Osob', required)
-            select(type='select', name='typ')
-                option(name='hotelowy') Hotelowy
+            select(type='select', name='typ', id='czy_hotelowy', required)
+                option(name='hotelowy', id='hotelowy-sel') Hotelowy
                 option(name='zewnetrzny') Zewnetrzny
             input(id='operator', type='text', name='operator', class='invis')
-            button(type='submit') Zarejerstruj
+            button(type='submit', id='register') Zarejerstruj
     ul  
         li
             a(href='/', class='but') Home
