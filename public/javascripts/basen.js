@@ -1,7 +1,8 @@
 window.onload = function() {
     var add = $('#addform')
     var liczbaOs = 0;
-    add.hide();
+    //add.addClass('invis');
+
     $('#operator')[0].value = 'Krysia';
 
     $('.tab-liczba').each((row) => {
@@ -30,6 +31,6 @@ window.onload = function() {
     $('#liczba-os')[0].innerText = 'Liczba Osob na basenie: ' + liczbaOs;
     
     $('#addbtn').on('click', () => {
-        add.toggle();
+        add.toggleClass('add-client');
     })
 }
