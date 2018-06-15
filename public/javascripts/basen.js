@@ -19,6 +19,10 @@ window.onload = function() {
         }
     });
 
+    $('.idklient').each(function(item) {
+        
+    });
+
     $('#register').on({
         click: function() {
             if($('#hotelowy-sel')[0].selected == false) {                

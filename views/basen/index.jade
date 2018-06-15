@@ -2,8 +2,11 @@ extend ../layout.jade
 block extra
     script(src='../javascripts/basen.js')
 block content
-    h2 Super Zajebisty Basen-Script
-    div(id='main')
+    h2 Program Basenowy
+    div(id='main-window')
+        div(id='liczba-os')
+    div(id='footer-window')
+        div(id='main')
         table
             colgroup
                 col(width="12.5%")
@@ -16,6 +19,7 @@ block content
                 col(width="12.5%")
                 col(width="12.5%")
             thead
+                th Id Klienta
                 th Data
                 th Typ Goscia
                 th Operator
@@ -27,6 +31,7 @@ block content
             tbody
                 each row in dane
                     tr
+                        td(class='idklient') #{row.id}
                         td #{row.data}
                         td #{row.typ}
                         td #{row.operator}
@@ -35,10 +40,11 @@ block content
                         td #{row.enter}
                         td #{row.exit}
                         td #{row.formapl}
+                        td
+                            a(class="cancel" href='http://localhost:8080/del' + row.id)
 
-    div(id='kasa') Gotowka w Kasie:
-    div(id='liczba-os')
-    div(id='new-client') Nowy Klient
+        div(id='kasa') Gotowka w Kasie:
+        div(id='new-client') Nowy Klient
         button(id='addbtn') Dodaj Klienta
         form(id='addform', action='basen/add', method='post')
             input(type='number', name='name', id='numer-pokoju', placeholder='Numer Pokoju')
@@ -49,6 +55,10 @@ block content
                 option(name='zewnetrzny') Zewnetrzny
             input(id='operator', type='text', name='operator', class='invis')
             button(type='submit', id='register') Zarejerstruj
+        div(id='usun-klienta') Wyrejestruj Klienta
+        button(id='addbtn') Wyrejestruj
+        form(id='removeform', action='basen/remove', method='post')
+            select(type='select', name='klientid', required)
     ul  
         li
             a(href='/', class='but') Home

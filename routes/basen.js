@@ -18,7 +18,7 @@ app.get('/', (req, res) => {
         console.log(dane);
         dane.forEach(function (row) {
             daneTab.push(row);
-          })
+        })
         res.render('basen/index', { dane: daneTab });
     });
 })
@@ -43,7 +43,14 @@ app.post('/add', (req, res) => {
         stmt.finalize();
         res.redirect('/basen');
     });
+});
 
-})
+app.get('/del/:id', (req, res) => {
+    db.serialize(function () {
+        let id = req.params.id;
+        db.run("DELETE FROM Reda WHERE id = ?", id);
+        res.redirect('/basen');
+    });
+});
 
 module.exports = app;
