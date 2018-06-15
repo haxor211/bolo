@@ -1,8 +1,17 @@
 body {
     background: #242525;
 }
+h2 {
+	color:wheat;
+	font-size:1.8em;
+}
 div#main-window {
 	height:100vh;
+}
+div#main-window img {
+    position: fixed;
+    right: 50px;
+    bottom: 30px;
 }
 div#liczba-os {
     width: 100%;
