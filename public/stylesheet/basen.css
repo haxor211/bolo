@@ -32,7 +32,20 @@ table {
   -webkit-box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.3);
   box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.3);
 }
-
+a.cancel {
+    display: block;
+    width: 30px;
+    height: 30px;
+    background: #d80d0d;
+    border-radius: 7px;
+    color: white;
+    text-decoration: none;
+    line-height: 30px;
+    text-align: center;
+    font-weight: 900;
+    font-size: 1.2em;
+    border: 1px solid #900f0f;
+}
 thead {
   -moz-border-radius: 5px;
   -webkit-border-radius: 5px;
