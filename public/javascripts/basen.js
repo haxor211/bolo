@@ -27,6 +27,7 @@ window.onload = function() {
 
     $('.idklient').each(function(item) {
         console.log($(this).text());
+        $('#klientid').append($('<option>', {value: $(this).text(), text: $(this).text() + ' Pokoj numer: ' + $('.numer-pokoju')[item].innerText}))
     });
 
     $('#register').on({
