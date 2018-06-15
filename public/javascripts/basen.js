@@ -1,11 +1,11 @@
 window.onload = function() {
     var add = $('#addform')
     var liczbaOs = 0;
-    var d = new Date();
-
+    
     if ($('#clock').length > 0) {
-		setInterval(function() {
-			$('#clock').html(d.toLocaleTimeString());
+        setInterval(function() {
+            var d = new Date();
+            $('#clock').html(d.toLocaleTimeString());
 		}, 1000);		
 	};
 
