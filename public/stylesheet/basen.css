@@ -6,7 +6,7 @@ h2 {
 	font-size:1.8em;
 }
 div#clock {
-    position: fixed;
+    position: absolute;
     right: 50px;
     top: 10px;
     color: wheat;
