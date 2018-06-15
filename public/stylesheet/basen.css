@@ -1,8 +1,16 @@
-
 body {
-  background: #353a40;
+    background: #242525;
 }
-
+div#main-window {
+	height:100vh;
+}
+div#liczba-os {
+    width: 100%;
+    text-align: center;
+    line-height: 90vh;
+    font-size: 7vw;
+    color: wheat;
+}
 table {
   width: 95%;
   border-collapse: separate;
