@@ -4,6 +4,7 @@ block extra
 block content
     div(id='main-window')
         h2 Program Basenowy
+        div#clock= new Date().toLocaleTimeString()	
         div(id='liczba-os')
         img(src='../images/faltom-logo.png')
     div(id='footer-window')
@@ -29,6 +30,7 @@ block content
                 th Godzina Wejscia
                 th Godzina Wyjscia
                 th Forma Platnosci
+                th
             tbody
                 each row in dane
                     tr
@@ -42,7 +44,7 @@ block content
                         td #{row.exit}
                         td #{row.formapl}
                         td
-                            a(class="cancel" href='http://localhost:8080/del' + row.id)
+                            a(class="cancel" href='http://localhost:8080/del/' + row.id) X
 
         div(id='kasa') Gotowka w Kasie:
         div(id='new-client') Nowy Klient
@@ -59,7 +61,7 @@ block content
         div(id='usun-klienta') Wyrejestruj Klienta
         button(id='addbtn') Wyrejestruj
         form(id='removeform', action='basen/remove', method='post')
-            select(type='select', name='klientid', required)
+            select(id='klientid', type='select', name='klientid', required)
     ul  
         li
             a(href='/', class='but') Home

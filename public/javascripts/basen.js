@@ -1,7 +1,13 @@
 window.onload = function() {
     var add = $('#addform')
     var liczbaOs = 0;
-    //add.addClass('invis');
+    var d = new Date();
+
+    if ($('#clock').length > 0) {
+		setInterval(function() {
+			$('#clock').html(d.toLocaleTimeString());
+		}, 1000);		
+	};
 
     $('#operator')[0].value = 'Krysia';
 
@@ -20,7 +26,7 @@ window.onload = function() {
     });
 
     $('.idklient').each(function(item) {
-        
+        console.log($(this).text());
     });
 
     $('#register').on({
