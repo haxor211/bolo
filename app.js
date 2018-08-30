@@ -26,6 +26,13 @@ app.use('/basen', basen);
 app.use('/browser', require('./routes/browser.js'));
 app.use('/review', require('./routes/review.js'));
 
+//error 
+app.use(function(req, res, next) {
+  console.log(typeof req.next);
+
+  next();
+});
+
 app.get('/', function (req, res, next) {
   var ip = req.header('x-forwarded-for') || req.connection.remoteAddress;
   console.log('Incoming connection from: ' + ip);
@@ -39,6 +46,7 @@ app.get('/', function (req, res, next) {
   }
   res.render('index');
 })
+
 
 app.get('/tl', function (req, res, next) {
   db.all('select * from movies', function (err, rows) {

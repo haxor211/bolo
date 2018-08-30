@@ -5,12 +5,10 @@ block content
     //div(id='firmy')= nazwy_firm
     //div(id='opinie')= opinie
     form(action="/review/add" method="post" id="newPackage" class="form")
-        div
-            label Dodający
-            input(name="opinia" placeholder="Opinia", id='o', value)
-        div
-            label Select Firme
-            select(name='firma', id='dok', form='newPackage')
+        div(id='normal') Dodaj Opinie
+            input(name="opinia" class='myinput' placeholder="Opinia", id='o', value)
+        div(id='normal') Zaznacz Firme
+            select(name='firma' class='myinput' id='dok', form='newPackage')
                 each row in nazwy_firm
                     option(firma=row)= row
     div(id='tablica')

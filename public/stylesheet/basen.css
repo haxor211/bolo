@@ -27,6 +27,21 @@ div#liczba-os {
     font-size: 7vw;
     color: wheat;
 }
+div#normal {
+  width: 100%;
+  text-align: center;
+  font-size: 2vw;
+  color: wheat;
+}
+
+input.myinput {
+  padding-left: 5%;
+  margin-left: 2%;
+}
+
+select.myinput {
+  margin-left: 2%;
+}
 div#footer-window {
     min-height: 90vh;
 }
