@@ -1,0 +1,30 @@
+extend ../layout
+
+block content
+    h2() SSIJ
+    //div(id='firmy')= nazwy_firm
+    //div(id='opinie')= opinie
+    form(action="/review/add" method="post" id="newPackage" class="form")
+        div
+            label Dodający
+            input(name="opinia" placeholder="Opinia", id='o', value)
+        div
+            label Select Firme
+            select(name='firma', id='dok', form='newPackage')
+                each row in nazwy_firm
+                    option(firma=row)= row
+    div(id='tablica')
+        table(id='moja-tablica')
+            colgroup
+                    col(width="50%")
+                    col(width="10%")
+            thead
+                tr(class='header')
+                    th Opinia
+                    th Baton
+            each row in opinie
+                tr(style='opacity:1')
+                    td= row.opinia
+                    td
+                        form(action='/review/del/', method='post')
+                            input(type='submit' name=row.opinia class='but')
