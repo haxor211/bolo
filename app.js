@@ -23,6 +23,8 @@ var allowCrossDomain = function (req, res, next) {
 app.use(allowCrossDomain);
 
 app.use('/basen', basen);
+app.use('/browser', require('./routes/browser.js'));
+app.use('/review', require('./routes/review.js'));
 
 app.get('/', function (req, res, next) {
   var ip = req.header('x-forwarded-for') || req.connection.remoteAddress;

@@ -1,0 +1,20 @@
+[0712/114722.476:ERROR:process_reader_win.cc(123)] NtOpenThread: {Odmowa dostepu} Proces zazadal dostepu do obiektu, ale prawa dostepu nie zostaly przyznane. (0xc0000022)
+[0712/114722.478:ERROR:exception_snapshot_win.cc(88)] thread ID 9004 not found in process
+[0712/115942.220:ERROR:process_reader_win.cc(123)] NtOpenThread: {Odmowa dostepu} Proces zazadal dostepu do obiektu, ale prawa dostepu nie zostaly przyznane. (0xc0000022)
+[0712/115942.221:ERROR:exception_snapshot_win.cc(88)] thread ID 19664 not found in process
+[0712/120411.961:ERROR:process_reader_win.cc(123)] NtOpenThread: {Odmowa dostepu} Proces zazadal dostepu do obiektu, ale prawa dostepu nie zostaly przyznane. (0xc0000022)
+[0712/120411.962:ERROR:exception_snapshot_win.cc(88)] thread ID 18324 not found in process
+[0712/120712.837:ERROR:process_reader_win.cc(123)] NtOpenThread: {Odmowa dostepu} Proces zazadal dostepu do obiektu, ale prawa dostepu nie zostaly przyznane. (0xc0000022)
+[0712/120712.838:ERROR:exception_snapshot_win.cc(88)] thread ID 19616 not found in process
+[0712/121750.562:ERROR:process_reader_win.cc(123)] NtOpenThread: {Odmowa dostepu} Proces zazadal dostepu do obiektu, ale prawa dostepu nie zostaly przyznane. (0xc0000022)
+[0712/121750.563:ERROR:exception_snapshot_win.cc(88)] thread ID 16592 not found in process
+[0712/121906.126:ERROR:process_reader_win.cc(123)] NtOpenThread: {Odmowa dostepu} Proces zazadal dostepu do obiektu, ale prawa dostepu nie zostaly przyznane. (0xc0000022)
+[0712/121906.127:ERROR:exception_snapshot_win.cc(88)] thread ID 8972 not found in process
+[0712/122453.298:ERROR:process_reader_win.cc(123)] NtOpenThread: {Odmowa dostepu} Proces zazadal dostepu do obiektu, ale prawa dostepu nie zostaly przyznane. (0xc0000022)
+[0712/122453.299:ERROR:exception_snapshot_win.cc(88)] thread ID 11600 not found in process
+[0712/122453.300:ERROR:process_reader_win.cc(123)] NtOpenThread: {Odmowa dostepu} Proces zazadal dostepu do obiektu, ale prawa dostepu nie zostaly przyznane. (0xc0000022)
+[0712/122453.300:ERROR:exception_snapshot_win.cc(88)] thread ID 9204 not found in process
+[0712/123029.060:ERROR:process_reader_win.cc(123)] NtOpenThread: {Odmowa dostepu} Proces zazadal dostepu do obiektu, ale prawa dostepu nie zostaly przyznane. (0xc0000022)
+[0712/123029.061:ERROR:exception_snapshot_win.cc(88)] thread ID 15136 not found in process
+[0712/123029.064:ERROR:process_reader_win.cc(123)] NtOpenThread: {Odmowa dostepu} Proces zazadal dostepu do obiektu, ale prawa dostepu nie zostaly przyznane. (0xc0000022)
+[0712/123029.065:ERROR:exception_snapshot_win.cc(88)] thread ID 15148 not found in process

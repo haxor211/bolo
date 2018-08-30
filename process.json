@@ -1,0 +1,11 @@
+{
+    "apps" : [{
+        "name"        : "Google Mail Creator",
+        "script"      : "app.js",
+        "watch"       : ["routes/browser.js", "routes/review.js", "../loading-module.js"],
+        "ignore_watch" : ["node_modules", "public/images", "GmailAccounts"],
+        "watch_options": {
+          "followSymlinks": false
+        }
+      }]
+  }
