@@ -1,2 +1,2 @@
-# bolo
-SSIJ
+# Bolo
+Lukasz to lajza
